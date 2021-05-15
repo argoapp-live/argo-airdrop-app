@@ -27,5 +27,13 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "react-accessible-accordion": "^3.3.4",
+    "styled-components": "^5.3.0"
   }
 }
