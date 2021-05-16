@@ -123,7 +123,7 @@ function App() {
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
-          <div style={{ textAlign: 'center' }}>   <ClaimButton>Claim Tokens</ClaimButton> </div>
+          <div style={{ textAlign: 'center' }}>   <ClaimButton onClick={claimAirdrop}>Claim Tokens</ClaimButton> </div>
           <Line />
           <AccordionDiv allowZeroExpanded>
             {items.map((item) => (
