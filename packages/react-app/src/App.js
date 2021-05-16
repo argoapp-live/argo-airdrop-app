@@ -22,6 +22,28 @@ async function readOnChainData() {
   const tokenBalance = await ceaErc20.balanceOf("0x3f8CB69d9c0ED01923F11c829BaE4D9a4CB6c82C");
   console.log({ tokenBalance: tokenBalance.toString() });
 }
+async function getAirdropContract() {
+  const defaultProvider = getDefaultProvider();
+  const web3 = new Web3(defaultProvider)
+  const contract = new web3.eth.Contract(abis.airdrop, addresses.argoERC20);
+  return contract;
+}
+
+async function airdropAmount() {
+  const defaultProvider = getDefaultProvider();
+  const web3 = new Web3(defaultProvider);
+  const contract = getAirdropContract();
+  var amount = await contract.methods.whiteListedAddresses(web3.currentProvider.selectedAddress).call();
+  return web3.utils.fromWei(amount)
+}
+
+async function claimAirdrop() {
+  const defaultProvider = getDefaultProvider();
+  const web3 = new Web3(defaultProvider);
+  const contract = getAirdropContract();
+  var tx = await contract.methods.claimAirdrop().send({ from: web3.currentProvider.selectedAddress });
+  return tx;
+}
 const items = [
   {
     heading: 'Why Decentralized Hosting important for Web3?',
@@ -81,17 +103,17 @@ function App() {
   return (
     <div>
       <MainHeader>
-      <TopHeader><Heading>You will be soon able to stake it in unifarm.</Heading></TopHeader>
-      <MenuBar>
-        <Imagediv>
+        <TopHeader><Heading>You will be soon able to stake it in unifarm.</Heading></TopHeader>
+        <MenuBar>
+          <Imagediv>
             <Logo src={logo} /> </Imagediv>
-        <BadgeButton>Connect To Matic</BadgeButton>
-        <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
+          <BadgeButton>Connect To Matic</BadgeButton>
+          <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
         </MenuBar>
-        </MainHeader>
+      </MainHeader>
       <Body style={{ backgroundColor: '#FEFEFE' }}>
         <BodyMain>
-         <Title>Gratitude Drop!</Title>
+          <Title>Gratitude Drop!</Title>
           <SubTitle>WE WOULD NEVER BE HERE WITHOUT YOU! THANKS FOR THE SUPPORT!!!</SubTitle>
         </BodyMain>
         <Main>
@@ -103,21 +125,21 @@ function App() {
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
           <div style={{ textAlign: 'center' }}>   <ClaimButton>Claim Tokens</ClaimButton> </div>
           <Line />
-         <AccordionDiv allowZeroExpanded>
-    {items.map((item) => (
-        <AccordionItemDiv key={item.uuid}>
-            <AccordionItemHeading>
-                <AccordionItemButtonDiv>
-                 <FontAwesomeIconSet icon={faArrowCircleDown} />
-   {item.heading}
-                </AccordionItemButtonDiv>
-            </AccordionItemHeading>
-            <AccordionItemPanelDiv>
-              {item.content}
-            </AccordionItemPanelDiv>
-        </AccordionItemDiv>
-    ))}
-</AccordionDiv>
+          <AccordionDiv allowZeroExpanded>
+            {items.map((item) => (
+              <AccordionItemDiv key={item.uuid}>
+                <AccordionItemHeading>
+                  <AccordionItemButtonDiv>
+                    <FontAwesomeIconSet icon={faArrowCircleDown} />
+                    {item.heading}
+                  </AccordionItemButtonDiv>
+                </AccordionItemHeading>
+                <AccordionItemPanelDiv>
+                  {item.content}
+                </AccordionItemPanelDiv>
+              </AccordionItemDiv>
+            ))}
+          </AccordionDiv>
         </Main>
       </Body>
     </div>
