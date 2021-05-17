@@ -34,8 +34,16 @@ import logo from "./argoLogo.png";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 import { addresses, abis } from "@project/contracts";
 import { AccordionItemHeading } from "react-accessible-accordion";
+import BounceLoader from "react-spinners/BounceLoader";
 import "react-accessible-accordion/dist/fancy-example.css";
 import { faArrowCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { css } from "@emotion/core";
+import { MATIC_CHAIN_ID } from "./config";
+
+const override = css`
+  display: block;
+  margin: 0px 0.5rem;
+`;
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   return (
@@ -56,7 +64,8 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 function App() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [claimAmount, setClaimAmount] = useState(0);
-  const [chain, setChain] = useState(80001);
+  const [claimLoading, setClaimLoading] = useState(false);
+  const [chain, setChain] = useState(MATIC_CHAIN_ID);
 
   async function getAirdropContract(web3) {
     const contract = new web3.eth.Contract(abis.airdrop, addresses.airdrop);
@@ -82,19 +91,26 @@ function App() {
   }
 
   async function claimAirdrop() {
-    const chainId = await provider.eth.getChainId();
-    console.log(chainId);
-    const contract = await getAirdropContract(provider);
-    const wallet = await provider.eth.getAccounts();
-    var tx = await contract.methods.claimAirdrop().send({ from: wallet[0] });
-    return tx;
+    try {
+      setClaimLoading(true);
+      const contract = await getAirdropContract(provider);
+      const wallet = await provider.eth.getAccounts();
+      var tx = await contract.methods.claimAirdrop().send({ from: wallet[0] });
+      console.log(tx);
+      setClaimLoading(false);
+      startup();
+    } catch (err) {
+      console.log(err);
+      setClaimLoading(false);
+      startup();
+    }
   }
 
   useEffect(() => {
     if (provider) {
       startup();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [provider]);
 
   const startup = async () => {
@@ -161,7 +177,7 @@ function App() {
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
           <List>- Donated to us on Gitcoin grants round 6 or 7</List>
-          {chain !== 80001 && (
+          {chain !== MATIC_CHAIN_ID && (
             <Note style={{ textAlign: "center" }}>
               Note: Current network is not supported, please switch to Matic
               Mainnet Network.
@@ -170,9 +186,20 @@ function App() {
           <div style={{ textAlign: "center" }}>
             <ClaimButton
               onClick={claimAirdrop}
-              disabled={claimAmount === 0 || chain !== 80001}
+              disabled={claimAmount === 0 || chain !== MATIC_CHAIN_ID}
             >
-              Claim {claimAmount} $ARGO
+              {!provider ? (
+                "Connect Wallet"
+              ) : claimLoading ? (
+                <BounceLoader
+                  color={"#fff"}
+                  css={override}
+                  loading={claimLoading}
+                  size={20}
+                />
+              ) : (
+                `Claim ${claimAmount} $ARGO`
+              )}
             </ClaimButton>
           </div>
           <Line />

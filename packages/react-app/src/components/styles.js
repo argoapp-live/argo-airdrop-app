@@ -204,6 +204,7 @@ export const ClaimButton = styled.button`
   box-shadow: 0px 4px 6px rgb(64 112 244 / 16%);
   font-family: "Inter";
   cursor: pointer;
+  min-width: 208px;
 
   &:hover {
     background-color: #2251d8;
@@ -243,7 +244,7 @@ export const ConnectButton = styled.button`
 `;
 
 export const BadgeButton = styled.button`
-  background-image: linear-gradient(90.21deg, #07a5bb, #2d54c2);
+  background: #8247e5;
   color: white;
   border: none;
   border-radius: 13px;
