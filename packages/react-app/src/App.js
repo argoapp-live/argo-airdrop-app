@@ -174,7 +174,7 @@ function App() {
             change us but we start & stay with our family! As a small token of
             our gratitude, we are dropping <Bold>$ARGO</Bold> to anyone who:
           </Text>
-          <List>- All AMA Winners, Invite Campaigns, Fun Challenges & Meme compitions</List>
+          <List>- All AMA Winners, Invite Campaigns, Fun Challenges & Meme Competition</List>
           <List>- Donated to us on Gitcoin Grants Round 9</List>
           {chain !== MATIC_CHAIN_ID && (
             <Note style={{ textAlign: "center" }}>
