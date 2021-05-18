@@ -1,135 +1,35 @@
-This project was bootstrapped with [Create Eth App](https://github.com/paulrberg/create-eth-app).
+<p align="center">
+  <a href="https://argoapp.live/">
+    <a href="https://imgur.com/J5O9d2O"><img src="https://i.imgur.com/J5O9d2O.png" title="source: imgur.com" alt="ArGo logo (light version)" width="210" /></a>
+  </a>
 
-## Project Structure
+  <h3 align="center">ArGo Airdrop App</h3>
 
-The default template is a monorepo created with [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
+  <p align="center">
+   💎 ArGo airdrop app for claiming $ARGO tokens.
+ </p>
+</p>
 
-Workspaces makes it possible to setup multiple packages in such a way that we only need to run `yarn install` once to install all of them in
-a single pass. Dependencies are hoisted at the root.
+> Important Notice: ArGo is in its Beta stage. If you have a suggestion, idea, or find a bug, please report it! The ArGo team will not be held accountable for any funds lost.
 
-```
-my-eth-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-└── packages
-    ├── contracts
-    │   ├── README.json
-    │   ├── package.json
-    │   └── src
-    │       ├── abis
-    │       │   ├── erc20.json
-    │       │   └── ownable.json
-    │       ├── addresses.js
-    │       └── index.js
-    ├── react-app
-    │   ├── README.md
-    │   ├── node_modules
-    │   ├── package.json
-    │   ├── public
-    │   │   ├── favicon.ico
-    │   │   ├── index.html
-    │   │   ├── logo192.png
-    │   │   ├── logo512.png
-    │   │   ├── manifest.json
-    │   │   └── robots.txt
-    │   └── src
-    │       ├── App.css
-    │       ├── App.js
-    │       ├── App.test.js
-    │       ├── ethereumLogo.svg
-    │       ├── index.css
-    │       ├── index.js
-    │       ├── serviceWorker.js
-    │       └── setupTests.js
-    └── subgraph
-        ├── README.md
-        ├── abis
-        │   └── erc20.json
-        ├── package.json
-        ├── schema.graphql
-        ├── src
-        │   └── mappings
-        │       ├── tokens.ts
-        │       └── transfers.ts
-        └── subgraph.yaml
-```
+## About ArGo
+ArGo is a simple & powerful platform to deploy your frontend app to Decentralised Storage Network where your app can be fully decentralised from the infrastructure level.
 
-Owing to this dependency on Yarn Workspaces, Create Eth App can't be used with npm.
+## Installation Instructions
 
-## Available Scripts
+> Note: Our current latest stable branch is dev. After clone make sure to checkout to dev branch
 
-In the project directory, you can run:
+Follow these easy steps to run ArGo in your machine:
 
-### React App
+1. Clone repo in your local
+2. `npm install`
+3. `npm run react-app:start`
 
-#### `yarn react-app:start`
+ArGo Web App will start running on http://localhost:3000/
 
-Runs the React app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Contributing
+Any contributions are very much welcomed. Feel free to fork and make a PR with any additions (or fixes)!
 
-The page will automatically reload if you make changes to the code.<br>
-You will see the build errors and lint warnings in the console.
+## Have questions?
 
-#### `yarn react-app:test`
-
-Runs the React test watcher in an interactive mode.<br>
-By default, runs tests related to files changed since the last commit.
-
-[Read more about testing React.](https://facebook.github.io/create-react-app/docs/running-tests)
-
-#### `yarn react-app:build`
-
-Builds the React app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the React documentation on [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-#### `yarn react-app:eject`
-
-**Note: this is a one-way operation. Once you `react-app:eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` the React app at any time. This command will
-remove the single build dependency from your React package.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right
-into the `react-app` package so you have full control over them. All of the commands except `react-app:eject` will still work,
-but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `react-app:eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-### Subgraph
-
-The Graph is a tool for for indexing events emitted on the Ethereum blockchain. It provides you with an easy-to-use GraphQL API. <br/>
-
-To learn more, check out the [The Graph documentation](https://thegraph.com/docs).
-
-#### `yarn subgraph:codegen`
-
-Generates AssemblyScript types for smart contract ABIs and the subgraph schema.
-
-#### `yarn subgraph:build`
-
-Compiles the subgraph to WebAssembly.
-
-#### `yarn subgraph:auth`
-
-Before deploying your subgraph, you need to sign up on the
-[Graph Explorer](https://thegraph.com/explorer/). There, you will be given an access token. Drop it in the command
-below:
-
-```sh
-GRAPH_ACCESS_TOKEN=your-access-token-here yarn subgraph:auth
-```
-
-#### `yarn subgraph:deploy`
-
-Deploys the subgraph to the official Graph Node.<br/>
-
-Replace `paulrberg/create-eth-app` in the package.json script with your subgraph's name.
-
-You may also want to [read more about the hosted service](https://thegraph.com/docs/quick-start#hosted-service).
+Reach out to @rekpero#3898 on the ArGo Discord ([https://discord.gg/HTMqYAm](https://discord.gg/HTMqYAm)) or head to the #contributors-forum channel for further discussion!
