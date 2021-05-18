@@ -99,6 +99,7 @@ function App() {
       console.log(tx);
       setClaimLoading(false);
       startup();
+      window.location.reload()
     } catch (err) {
       console.log(err);
       setClaimLoading(false);
