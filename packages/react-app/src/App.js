@@ -167,16 +167,14 @@ function App() {
           </SubTitle>
         </BodyMain>
         <Main>
-          <ThanksHeading>Thank You!</ThanksHeading>
+          <ThanksHeading>Thanks a million! 👊</ThanksHeading>
           <Text>
-            Thanks for the ton of support, feedback, encouragement and helping
-            us out in every step! As a small token of our gratitude, we are
-            dropping <Bold>$ARGO</Bold> to anyone who:
+            We owe you for your love, support & encouragement. Other things may
+            change us but we start & stay with our family! As a small token of
+            our gratitude, we are dropping <Bold>$ARGO</Bold> to anyone who:
           </Text>
-          <List>- Donated to us on Gitcoin grants round 6 or 7</List>
-          <List>- Donated to us on Gitcoin grants round 6 or 7</List>
-          <List>- Donated to us on Gitcoin grants round 6 or 7</List>
-          <List>- Donated to us on Gitcoin grants round 6 or 7</List>
+          <List>- All AMA Winners, Invite Campaigns, Fun Challenges & Meme compitions</List>
+          <List>- Donated to us on Gitcoin Grants Round 9</List>
           {chain !== MATIC_CHAIN_ID && (
             <Note style={{ textAlign: "center" }}>
               Note: Current network is not supported, please switch to Matic
