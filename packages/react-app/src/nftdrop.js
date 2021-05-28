@@ -30,6 +30,7 @@ import {
   Line,
   Note,
 } from "./components/styles";
+import { request, gql } from 'graphql-request';
 import logo from "./argoLogo.png";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 import { addresses, abis } from "@project/contracts";
@@ -112,6 +113,25 @@ function App() {
       console.log(err);
       setClaimLoading(false);
       startup();
+    }
+  }
+  async function getNftList() {
+    try {
+      const endpoint = 'https://api.thegraph.com/subgraphs/name/abhimanyu121/nft2'
+      const query = gql`
+        {
+          nftDatas {
+            id
+            owner
+            tokenId
+            uri
+          }
+        }
+        `
+      const data = await request(endpoint, query)
+      return data;
+    } catch (err) {
+      console.log(err);
     }
   }
 
