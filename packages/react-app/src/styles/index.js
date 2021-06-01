@@ -391,8 +391,7 @@ export const NftItem = styled.div`
 `;
 
 export const NftImage = styled.img`
-  width: 358px;
-  height: 400px;
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
