@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import Web3Modal from "web3modal";
-import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 
 
@@ -25,12 +24,6 @@ function useWeb3Modal(config = {}) {
     network: NETWORK,
     cacheProvider: true,
     providerOptions: {
-      walletconnect: {
-        package: WalletConnectProvider,
-        options: {
-          infuraId,
-        },
-      },
     },
   });
 
@@ -48,7 +41,7 @@ function useWeb3Modal(config = {}) {
 
   const logoutOfWeb3Modal = useCallback(
     async function() {
-      await web3Modal.clearCachedProvider();
+      web3Modal.clearCachedProvider();
       window.location.reload();
     },
     [web3Modal]

@@ -6,6 +6,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const Header = styled.header`
   background-color: #282c34;
@@ -16,7 +17,7 @@ export const Header = styled.header`
   color: white;
 `;
 
-export const Body = styled.body`
+export const Body = styled.div`
   align-items: center;
   background-color: #282c34;
   color: white;
@@ -33,7 +34,7 @@ export const Image = styled.img`
   pointer-events: none;
 `;
 
-export const Link = styled.a.attrs({
+export const CustomLink = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer",
 })`
@@ -64,6 +65,25 @@ export const Imagediv = styled.div`
   flex-grow: 1;
 `;
 
+export const MenuItem = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 1rem;
+  color: #334061;
+  opacity: 0.7;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  background: ${props => props.selected ? "#bdddf8" : "white"};
+
+  &:hover {
+    background: #bdddf8;
+  }
+`;
+
 export const Logo = styled.img`
   padding: 1rem;
   height: 2.7rem;
@@ -85,7 +105,7 @@ export const BodyMain = styled.div`
 `;
 
 export const Main = styled.div`
-  margin: -7rem 8rem;
+  margin: -7rem 12rem;
   margin-bottom: 5rem;
   border-radius: 8px;
   position: relative;
@@ -261,7 +281,7 @@ export const Bold = styled.span`
 `;
 
 export const AccordionDiv = styled(Accordion)`
-  margin-top: 4rem;
+  margin-top: 3rem;
   font-family: "Inter";
 `;
 
@@ -353,4 +373,123 @@ export const MenuBar = styled(Header)`
 export const Line = styled.hr`
   margin: 3rem 0rem;
   border-color: #efefef;
+`;
+
+export const NftGrid = styled.div`
+  padding: 0px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 2rem;
+`;
+
+export const NftItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgb(0 0 0 / 5%);
+`;
+
+export const NftImage = styled.img`
+  width: 358px;
+  height: 400px;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0px 0px;
+`;
+
+export const NftOnwerBlockie = styled.img`
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+`;
+
+export const NftOnwerAddress = styled.span`
+  margin-left: 12px;
+`;
+
+export const NftClaimedText = styled.span`
+  color: #11c264;
+  font-weight: bold;
+  font-size: 15px;
+`;
+
+export const NftOwner = styled.div`
+  padding: 12px 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334061;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const NftClaimContainer = styled.div`
+  background: linear-gradient(
+    110.21deg,
+    rgba(45, 84, 194, 0.12) 8.95%,
+    rgba(7, 177, 199, 0.13) 114.8%
+  );
+  border-radius: 0px 0px 12px 12px;
+  color: #334061;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 1rem;
+  height: 32px;
+`;
+
+export const NftClaim = styled.div`
+  color: #334061;
+  display: flex;
+  align-items: center;
+`;
+
+export const NftType = styled.span`
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 12px;
+  background: linear-gradient(90.21deg, #2d54c2 8.95%, #07a5bb 94.8%);
+  border-radius: 24px;
+`;
+
+export const NftClaimButton = styled.button`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 12px;
+  background-color: #4977f9;
+  color: white;
+  transition: all ease 250ms;
+  line-height: 18px;
+  border-radius: 6px;
+  outline: none !important;
+  border: 1px solid #4977f9;
+  box-shadow: 0px 4px 6px rgb(64 112 244 / 16%);
+  font-family: "Inter";
+  cursor: pointer;
+  min-width: 120px;
+
+  &:hover {
+    background-color: #2251d8;
+    color: #fff;
+  }
+
+  &:disabled {
+    background-color: #83a2f7 !important;
+    border: 1px solid #83a2f7 !important;
+    cursor: not-allowed !important;
+  }
 `;
