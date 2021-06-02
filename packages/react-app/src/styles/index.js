@@ -77,7 +77,7 @@ export const MenuItem = styled(Link)`
   margin-right: 1rem;
   border-radius: 6px;
   text-decoration: none;
-  background: ${props => props.selected ? "#bdddf8" : "white"};
+  background: ${(props) => (props.selected ? "#bdddf8" : "white")};
 
   &:hover {
     background: #bdddf8;
@@ -145,7 +145,7 @@ export const List = styled.h4`
   font-family: "Inter";
   font-size: 20px;
   font-weight: normal;
-  line-height: 0.8;
+  line-height: 1.8;
   margin-left: 2rem;
 `;
 
@@ -378,7 +378,7 @@ export const Line = styled.hr`
 export const NftGrid = styled.div`
   padding: 0px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
   gap: 40px;
   margin-top: 2rem;
 `;

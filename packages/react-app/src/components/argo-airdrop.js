@@ -105,7 +105,8 @@ function ArgoAirdrop({ provider }) {
           gratitude, we are dropping <Bold>$ARGO</Bold> to anyone who:
         </Text>
         <List>
-          - All AMA Winners, Invite Campaigns, Fun Challenges & Meme Competition
+          - Is an AMA winner, Invite Campaign winner, Fun Campaign winner,
+          Sticker Design Challenge winner, Meme Challenge winner, etc
         </List>
         <List>- Donated to us on Gitcoin Grants Round 9</List>
         {chain !== MATIC_CHAIN_ID && (
