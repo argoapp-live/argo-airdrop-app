@@ -163,6 +163,13 @@ export const FloatingInnerLink = styled.a`
   justify-content: space-between;
   font-size: 15px;
   font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s linear;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const FloatingInnerDiv = styled.div`
