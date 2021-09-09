@@ -51,7 +51,7 @@ function Header({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
               />{" "}
               NEW
             </FloatingSpan>
-            You will be soon able to stake it on Unifarm and earn upto 250% APY.
+            You can stake on our staking app and earn upto 500% APY.
           </FloatingInnerDiv>
           <FloatingInnerLink>Learn More {"->"}</FloatingInnerLink>
         </FloatingDiv>
@@ -61,7 +61,7 @@ function Header({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
           <Logo
             src={logo}
             onClick={(e) =>
-              window.open("https://argoapp.live/", "_blank", "noopener")
+              window.open("https://incentives.argoapp.net/", "_blank", "noopener")
             }
           />
         </ImageDiv>
