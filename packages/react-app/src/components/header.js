@@ -53,7 +53,7 @@ function Header({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
             </FloatingSpan>
             You can stake on our staking app and earn upto 500% APY.
           </FloatingInnerDiv>
-          <FloatingInnerLink>Learn More {"->"}</FloatingInnerLink>
+          <FloatingInnerLink href="https://incentives.argoapp.net/" target="_blank" rel="noopener noreferrer">Learn More {"->"}</FloatingInnerLink>
         </FloatingDiv>
       </TopHeader>
       <MenuBar>
@@ -61,7 +61,7 @@ function Header({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
           <Logo
             src={logo}
             onClick={(e) =>
-              window.open("https://incentives.argoapp.net/", "_blank", "noopener")
+              window.open("https://argoapp.net/", "_blank", "noopener")
             }
           />
         </ImageDiv>
